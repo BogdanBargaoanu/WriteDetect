@@ -8,6 +8,9 @@
 
 ## Setup
 1. Clone this repository.
+```bash
+git clone https://github.com/BogdanBargaoanu/NeuralNetwork.git
+```
 2. Open the project.
 3. Compile and run the project.
 
