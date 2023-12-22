@@ -17,7 +17,8 @@ git clone https://github.com/BogdanBargaoanu/NeuralNetwork.git
 ## Accuracy
 - The current version is not perfect and will be improved.
 - Accuracy over <b><font color="lightgreen" size=4>80% </font></b> in 5 epochs.
-
+  
+![Acc:](https://raw.githubusercontent.com/BogdanBargaoanu/NeuralNetwork/main/acc.png)
 ## To be added in the future...
 - Image input for testing the trained model. <font color ="lightgreen">(selection from the dataset) </font>
 - Custom image input for testing the trained model. <font color="#ff5757">(size constraint: 28x28px) </font>
