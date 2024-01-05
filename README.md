@@ -20,6 +20,5 @@ git clone https://github.com/BogdanBargaoanu/NeuralNetwork.git
   
 ![Acc:](https://raw.githubusercontent.com/BogdanBargaoanu/NeuralNetwork/main/acc.png)
 ## To be added in the future...
-- Image input for testing the trained model. <font color ="lightgreen">(selection from the dataset) </font>
 - Custom image input for testing the trained model. <font color="#ff5757">(size constraint: 28x28px) </font>
 - Improving the performances of the <b><font color = "#c800ff"> Neural Network </font></b>.
