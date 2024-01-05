@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oRcguoZ/hUYJYNFMyGSBQcF5jz5CsYwJf2LhTtR9n6yf+WZhyHIElwDsChLmteEJPBB8MA4C0JFHNS6lE+MbwQ==",
+  "dgSpecHash": "J1uEcfc1w8AB64+rhz7NNThV5J8hiOUvOLZIY6KRjloyITj/squuQ5KqtRr2qGhw4EZ48mR0hxBhWDFSFj88Jw==",
   "success": true,
-  "projectFilePath": "E:\\nn\\NeuralNetwork\\NeuralNetwork.csproj",
+  "projectFilePath": "E:\\NeuralNetwork\\NeuralNetwork.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

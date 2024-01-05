@@ -1,2 +1,19 @@
 
 bin/Debug/net6.0/NeuralNetwork.exe
+*.pdb
+*.dll
+bin/Debug/net6.0/NeuralNetwork.pdb
+obj/Debug/net6.0/apphost.exe
+obj/Debug/net6.0/NeuralNetwork.AssemblyInfo.cs
+obj/Debug/net6.0/NeuralNetwork.AssemblyInfoInputs.cache
+obj/Debug/net6.0/NeuralNetwork.assets.cache
+obj/Debug/net6.0/NeuralNetwork.csproj.CoreCompileInputs.cache
+obj/Debug/net6.0/NeuralNetwork.csproj.FileListAbsolute.txt
+obj/Debug/net6.0/NeuralNetwork.dll
+obj/Debug/net6.0/NeuralNetwork.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net6.0/NeuralNetwork.genruntimeconfig.cache
+obj/Debug/net6.0/NeuralNetwork.pdb
+obj/Debug/net6.0/NeuralNetwork.sourcelink.json
+obj/Debug/net6.0/refint/NeuralNetwork.dll
+obj/NeuralNetwork.csproj.nuget.dgspec.json
+obj/NeuralNetwork.csproj.nuget.g.props

@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace NeuralNetwork
 {
 
@@ -43,6 +45,40 @@ namespace NeuralNetwork
                 }
             }
 
+        }
+
+        static void LoadMNIST(string path, int index, out double[] input, out double output)
+        {
+            input = new double[784];
+
+            using (FileStream inputfsImages = new FileStream(Path.Combine(path, "train-images-idx3-ubyte"), FileMode.Open))
+            {
+                using (BinaryReader brImages = new BinaryReader(inputfsImages))
+                {
+                    brImages.ReadBytes(16); //skip header
+
+                    //move to the start of the specified index
+                    brImages.BaseStream.Seek(index * 784, SeekOrigin.Current);
+
+                    for (int j = 0; j < 784; j++)
+                    {
+                        input[j] = brImages.ReadByte() / 255.0;
+                    }
+                }
+            }
+
+            using (FileStream inputfsLabels = new FileStream(Path.Combine(path, "train-labels-idx1-ubyte"), FileMode.Open))
+            {
+                using (BinaryReader brLabels = new BinaryReader(inputfsLabels))
+                {
+                    brLabels.ReadBytes(8); //skip header
+
+                    //move to the start of the specified index
+                    brLabels.BaseStream.Seek(index, SeekOrigin.Current);
+
+                    output = brLabels.ReadByte();
+                }
+            }
         }
         private static double[,] InitializeWeights(int numRows, int numCols)
         {
@@ -276,6 +312,27 @@ namespace NeuralNetwork
 
             return result;
         }
+        static double[] LoadCustomImage(string imagePath)
+        {
+            double[] input = new double[784];
+
+            using (FileStream fs = new FileStream(imagePath, FileMode.Open))
+            {
+                byte[] buffer = new byte[28 * 28];
+                fs.Read(buffer, 0, buffer.Length);
+
+                for (int i = 0; i < 28; i++)
+                {
+                    for (int j = 0; j < 28; j++)
+                    {
+                        byte pixelValue = buffer[i * 28 + j];
+                        input[i * 28 + j] = pixelValue / 255.0;
+                    }
+                }
+            }
+
+            return input;
+        }
 
         static void Main(string[] args)
         {
@@ -333,6 +390,40 @@ namespace NeuralNetwork
                 Console.WriteLine($"Accuracy: {Math.Round((double)numCorrect / inputs.Length * 100, 2)}%");
                 numCorrect = 0;
             }
+
+            while (true)
+            {
+                Console.WriteLine("Insert an index from the MNIST DataSet (indexing from 0):");
+                string index = Console.ReadLine();
+                int num;
+                try
+                {
+                    num = Convert.ToInt32(index);
+                    if (num < 0 || num > 59999)
+                    {
+                        Console.WriteLine("Invalid index! The index should be a number from 0-59999.");
+                        continue;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid index! The index should be a number from 0-59999.");
+                    continue;
+                }
+                double[] testImg;
+                double result;
+                LoadMNIST(mnistDataPath,num,out testImg,out result); 
+                double[,] testMatrix = MatrixAddColumn(testImg);
+                result += 1;
+                double[,] hiddenLayerPre = MatrixAdd(MatrixMultiply(wInputHiddenLayer, testMatrix), biasInputHiddenLayer);
+                double[,] hiddenLayer = Sigmoid(hiddenLayerPre);
+
+                double[,] outputPre = MatrixAdd(MatrixMultiply(wHiddenLayerOutput, hiddenLayer), biasHiddenLayerOutput);
+                double[,] output = Sigmoid(outputPre);
+
+                Console.WriteLine($"Predicted output by the model: {ArgMax(output)}, actual label: {result}");
+            }
+            
         }
     }
 }
