@@ -1,16 +1,8 @@
-﻿
-using System.Drawing;
-
-namespace NeuralNetwork
+﻿namespace NeuralNetwork
 {
 
     internal class Program
     {
-        /*
-
-        /////////ACCURACY AFTER 5 EPOCHS ~~ 81%/////////
-
-        */
         public static string mnistDataPath = "data/";
         static void LoadMNIST(string path, out double[][] inputs, out double[] outputs)
         {
@@ -412,7 +404,7 @@ namespace NeuralNetwork
                 }
                 double[] testImg;
                 double result;
-                LoadMNIST(mnistDataPath,num,out testImg,out result); 
+                LoadMNIST(mnistDataPath, num, out testImg, out result);
                 double[,] testMatrix = MatrixAddColumn(testImg);
                 result += 1;
                 double[,] hiddenLayerPre = MatrixAdd(MatrixMultiply(wInputHiddenLayer, testMatrix), biasInputHiddenLayer);
@@ -423,7 +415,7 @@ namespace NeuralNetwork
 
                 Console.WriteLine($"Predicted output by the model: {ArgMax(output)}, actual label: {result}");
             }
-            
+
         }
     }
 }
