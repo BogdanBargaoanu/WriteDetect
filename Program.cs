@@ -3,7 +3,7 @@
 
     internal class Program
     {
-        public static string mnistDataPath = "data/";
+        public static string mnistDataPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\data\");
         static void LoadMNIST(string path, out double[][] inputs, out double[] outputs)
         {
             inputs = new double[60000][];
