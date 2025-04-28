@@ -1,4 +1,4 @@
-# <b><font color = "#c800ff">Neural Network </font></b>
+# <b><font color = "#c800ff">WriteDetect </font></b>
 
 <p>
 <font size = 4>The repository is a simple implementation for classifying the MNIST dataset using <b><font color = "#c800ff"> C# </font></b>. This project serves as a basic introduction to neural networks and can be used as a starting point for more advanced implementations.</font>
